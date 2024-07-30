@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #142a8f;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .sidebar {
+            width: 200px;
+            float: left;
+            height: 100vh;
+            overflow-y: auto;
+            background-color: #b3d0fa;
+            padding: 20px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar li a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+        main {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .edit-button, .delete-button {
+            padding: 5px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 3px;
+            color: white;
+        }
+        .edit-button {
+            background-color: #4CAF50;
+        }
+        .delete-button {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Inventory Management</h1>
+    </header>
+    <aside class="sidebar">
+        <ul>
+            <li><a href="/home_page">Home</a></li>
+            <li><a href="/inventory">Inventory Management</a></li>
+            <li><a href="/requests">User Requests</a></li>
+        </ul>
+    </aside>
+    <main>
+        <section id="add-product">
+            <h2>Add New Product</h2>
+            <div class="card">
+                <form method="POST" action="{{ url_for('inventory_management') }}">
+                    {{ form.hidden_tag() }}
+                    <div class="form-group">
+                        <label for="name">{{ form.name.label }}</label>
+                        {{ form.name(size=32) }}
+                        {% for error in form.name.errors %}
+                            <span style="color: red;">[{{ error }}]</span><br>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">{{ form.quantity.label }}</label>
+                        {{ form.quantity(size=32) }}
+                        {% for error in form.quantity.errors %}
+                            <span style="color: red;">[{{ error }}]</span><br>
+                        {% endfor %}
+                    </div>
+                    <button type="submit" class="btn">{{ form.submit() }}</button>
+                </form>
+            </div>
+        </section>
+        
+        <section id="update-inventory">
+            <h2>Update Inventory</h2>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Current Quantity</th>
+                            <th>New Quantity</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for product in inventory %}
+                        <tr>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.quantity }}</td>
+                            <td><input type="number" min="0" value="{{ product.quantity }}" id="quantity-{{ product.id }}"></td>
+                            <td>
+                                <button class="edit-button" onclick="updateProduct({{ product.id }})">Update</button>
+                                <button class="delete-button" onclick="deleteProduct({{ product.id }})">Delete</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script>
+        function updateProduct(id) {
+            const newQuantity = document.getElementById(`quantity-${id}`).value;
+            fetch(`/update_product/${id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ quantity: newQuantity }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert('Error updating product');
+                }
+            });
+        }
+
+        function deleteProduct(id) {
+            fetch(`/delete_product/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert('Error deleting product');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+           
