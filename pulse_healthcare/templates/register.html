@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+</head>
+<body>
+    <div class="loader" id="loader"></div>
+    <div class="pulse-text" id="pulse-text">PULSE</div>
+    <div class="wrapper">
+        <div class="title">Register</div>
+        <div class="form-container">
+            <div class="form-inner">
+                <form method="POST" action="{{ url_for('register') }}" class="register">
+                    {{ form.hidden_tag() }}
+                    <div class="field">
+                        {{ form.username.label(class="form-label") }}
+                        {{ form.username(class="form-input", placeholder="Username") }}
+                    </div>
+                    <div class="field">
+                        {{ form.password.label(class="form-label") }}
+                        {{ form.password(class="form-input", placeholder="Password") }}
+                    </div>
+                    <!-- Remove this block if you do not have confirm_password -->
+                    <!--
+                    <div class="field">
+                        {{ form.confirm_password.label(class="form-label") }}
+                        {{ form.confirm_password(class="form-input", placeholder="Confirm Password") }}
+                    </div>
+                    -->
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        {{ form.submit(class="btn-submit") }}
+                    </div>
+                    <div class="signup-link">
+                        Already have an account? <a href="{{ url_for('login') }}">Log In</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+</body>
+</html>

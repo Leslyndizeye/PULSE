@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Pharmacies - Pulse Bootstrap Template</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon">
+    <link href="{{ url_for('static', filename='assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=Marcellus:wght@400&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.css') }}">
+    
+
+    <!-- Main CSS File -->
+
+
+</head>
+
+<body class="home-page">
+
+  <header id="header" class="header d-flex align-items-center position-relative">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Lesly's AgriHub">
+        <!-- <h1 class="sitename">AgriCulture</h1>  -->
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About Us</a></li>
+          <li><a href="{{ url_for('services') }}">Our Services</a></li>
+          <li><a href="{{ url_for('pharmacies') }}">pharmacies</a></li>
+          <li><a href="{{ url_for('blog') }}">Blog</a></li>
+
+          <li><a href="{{ url_for('contact') }}">Contact</a></li>
+          <li><a href="{{ url_for('login') }}">Login</a></li>
+          <li><a href="{{ url_for('register') }}">Signup</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <div class="loader-background">
+      <div class="loader" id="loader"></div>
+      <div class="pulse-text" id="pulse-text">PULSE</div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+    
+        <div class="carousel-item active">
+          <img src="{{ url_for('static', filename='assets/img/hero_1.jpg') }}" alt="">
+          <div class="carousel-container">
+            <h2>Find Nearby Pharmacies with PULSE</h2>
+            <p>Effortlessly locate nearby pharmacies with the medications you need using PULSE. Our platform ensures you get quick access to essential medicines, improving your health management and reducing delays.</p>
+          </div>
+        </div><!-- End Carousel Item -->
+    
+        <div class="carousel-item">
+          <img src="{{ url_for('static', filename='assets/img/hero_2.jpg') }}" alt="">
+          <div class="carousel-container">
+            <h2>Real-Time Medication Availability</h2>
+            <p>With PULSE, you can see real-time inventory data to find pharmacies with your prescribed medications in stock. This helps you avoid the hassle of calling multiple places or visiting them in person.</p>
+          </div>
+        </div><!-- End Carousel Item -->
+    
+        <div class="carousel-item">
+          <img src="{{ url_for('static', filename='assets/img/hero_3.jpg') }}" alt="">
+          <div class="carousel-container">
+            <h2>Efficient Pharmacy Locator</h2>
+            <p>PULSE uses advanced GPS technology to show the nearest pharmacies based on your location. Find the most convenient options and get your medications faster.</p>
+          </div>
+        </div><!-- End Carousel Item -->
+    
+        <div class="carousel-item">
+          <img src="{{ url_for('static', filename='assets/img/hero_4.jpg') }}" alt="">
+          <div class="carousel-container">
+            <h2>Streamlined Communication with Pharmacies</h2>
+            <p>Communicate directly with pharmacies through PULSE to reserve medications or inquire about availability. This feature enhances convenience and ensures you get the medicines you need without unnecessary delays.</p>
+          </div>
+        </div><!-- End Carousel Item -->
+    
+        <div class="carousel-item">
+          <img src="{{ url_for('static', filename='assets/img/hero_5.jpg') }}" alt="">
+          <div class="carousel-container">
+            <h2>Improving Health Outcomes with PULSE</h2>
+            <p>PULSE aims to enhance health outcomes by providing quick and reliable access to prescribed medications. Our goal is to reduce patient frustration and improve overall healthcare delivery.</p>
+          </div>
+        </div><!-- End Carousel Item -->
+    
+        <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+        </a>
+    
+        <a class="carousel-control-next" href="" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+        </a>
+    
+        <ol class="carousel-indicators"></ol>
+    
+      </div>
+    
+    </section><!-- /Hero Section -->
+    
+
+    <!-- Services Section -->
+    <section id="services" class="services section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>SERVICES</h2>
+        <p>Providing Fresh Produce Every Single Day</p>
+      </div><!-- End Section Title -->
+
+    </section><!-- /Services Section -->
+<!-- About Section -->
+<section id="about" class="about section">
+
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <img src="{{ url_for('static', filename='assets/img/hero_3.jpg') }}" alt="Image" class="img-fluid img-overlap" data-aos="zoom-out">
+        </div>
+        <div class="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="content-subtitle text-white opacity-50">Our Mission</h3>
+          <h2 class="content-title mb-4">
+            Connecting Patients with the Medications They Need
+          </h2>
+          <p class="opacity-50">
+            Providing a seamless platform for locating nearby pharmacies and ensuring timely access to essential medications.
+          </p>
+
+          <div class="row my-5">
+            <div class="col-lg-12 d-flex align-items-start mb-4">
+              <i class="bi bi-search me-4 display-6"></i>
+              <div>
+                <h4 class="m-0 h5 text-white">Efficient Medication Search</h4>
+                <p class="text-white opacity-50">Utilizing real-time inventory data to quickly find pharmacies with available medications.</p>
+              </div>
+            </div>
+            <div class="col-lg-12 d-flex align-items-start mb-4">
+              <i class="bi bi-telephone me-4 display-6"></i>
+              <div>
+                <h4 class="m-0 h5 text-white">Direct Communication</h4>
+                <p class="text-white opacity-50">Enabling users to directly contact pharmacies for medication reservations and inquiries.</p>
+              </div>
+            </div>
+            <div class="col-lg-12 d-flex align-items-start">
+              <i class="bi bi-clock me-4 display-6"></i>
+              <div>
+                <h4 class="m-0 h5 text-white">Timely Access</h4>
+                <p class="text-white opacity-50">Reducing delays and improving access to medications to enhance overall patient health.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- /About Section -->
+
+
+
+    <!-- About 3 Section -->
+<section id="about-3" class="about-3 section">
+
+  <div class="container">
+    <div class="row gy-4 justify-content-between align-items-center">
+      <div class="col-lg-6 order-lg-2 position-relative" data-aos="zoom-out">
+        <img src="{{ url_for('static', filename='assets/img/about-3.jpg') }}" alt="Image" class="img-fluid">
+        <a href="https://youtu.be/iA1mR4RcCCg?si=0kfUQPPJlG3x0cOx" class="glightbox pulsating-play-btn">
+          <span class="play"><i class="bi bi-play-fill"></i></span>
+        </a>
+      </div>
+      <div class="col-lg-5 order-lg-1" data-aos="fade-up" data-aos-delay="100">
+        <h2 class="content-title mb-4">Streamlining Medication Access</h2>
+        <p class="mb-4">
+          Educating users on the importance of efficient medication access and how PULSE helps streamline the process for better health outcomes.
+        </p>
+        <ul class="list-unstyled list-check">
+          <li>Ensuring quick access to necessary medications</li>
+          <li>Reducing time spent searching for pharmacies</li>
+          <li>Improving communication between patients and pharmacies</li>
+        </ul>
+
+        <p><a href="#" class="btn-cta">Learn More</a></p>
+      </div>
+    </div>
+  </div>
+</section><!-- /About 3 Section -->
+
+    
+    
+
+    <!-- Services 2 Section -->
+    <section id="services-2" class="services-2 section dark-background">
+      <!-- Section Title -->
+    
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Our Services</h2>
+        <p>Discover how PULSE supports your healthcare needs</p>
+      </div><!-- End Section Title -->
+    
+      <div class="services-carousel-wrap">
+        <div class="container">
+          <div class="swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 5000
+                },
+                "slidesPerView": "auto",
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "type": "bullets",
+                  "clickable": true
+                },
+                "navigation": {
+                  "nextEl": ".js-custom-next",
+                  "prevEl": ".js-custom-prev"
+                },
+                "breakpoints": {
+                  "320": {
+                    "slidesPerView": 1,
+                    "spaceBetween": 40
+                  },
+                  "1200": {
+                    "slidesPerView": 3,
+                    "spaceBetween": 40
+                  }
+                }
+              }
+            </script>
+            <button class="navigation-prev js-custom-prev">
+              <i class="bi bi-arrow-left-short"></i>
+            </button>
+            <button class="navigation-next js-custom-next">
+              <i class="bi bi-arrow-right-short"></i>
+            </button>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="service-item">
+                  <div class="service-item-contents">
+                    <a href="#">
+                      <span class="service-item-category">We Offer</span>
+                      <h2 class="service-item-title">Medication Search</h2>
+                    </a>
+                  </div>
+                  <img  src="{{url_for('static', filename='assets/img/img_sq_1.jpg')}}" alt="Image" class="img-fluid">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="service-item">
+                  <div class="service-item-contents">
+                    <a href="#">
+                      <span class="service-item-category">We Provide</span>
+                      <h2 class="service-item-title">Pharmacy Locator</h2>
+                    </a>
+                  </div>
+                  <img src="{{url_for('static', filename='assets/img/img_sq_2.jpg')}}" alt="Image" class="img-fluid">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="service-item">
+                  <div class="service-item-contents">
+                    <a href="#">
+                      <span class="service-item-category">We Offer</span>
+                      <h2 class="service-item-title">Real-time Inventory</h2>
+                    </a>
+                  </div>
+                  <img src="{{url_for('static', filename='assets/img/hero_4.jpg')}}" alt="Image" class="img-fluid">
+                </div>
+              </div>
+    
+              <div class="swiper-slide">
+                <div class="service-item">
+                  <div class="service-item-contents">
+                    <a href="#">
+                      <span class="service-item-category">We Provide</span>
+                      <h2 class="service-item-title">Medication Availability</h2>
+                    </a>
+                  </div>
+                  <img style="height:406px; width:406px; object-fit: cover;" src="{{url_for('static', filename='assets/img/img_sq_6.jpg')}}" alt="Image" class="img-fluid">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="service-item">
+                  <div class="service-item-contents">
+                    <a href="#">
+                      <span class="service-item-category">We Offer</span>
+                      <h2 class="service-item-title">Pharmacy Reviews</h2>
+                    </a>
+                  </div>
+                  <img style="height:406px; width:406px; object-fit: cover;" src="{{url_for('static', filename='assets/img/img_sq_8.jpg')}}" alt="Image" class="img-fluid">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="service-item">
+                  <div class="service-item-contents">
+                    <a href="#">
+                      <span class="service-item-category">We Provide</span>
+                      <h2 class="service-item-title">Medication Information</h2>
+                    </a>
+                  </div>
+                  <img style="width: 406px; height: 406px; object-fit: cover;" src="{{url_for('static', filename='assets/img/img_sq_10.jpg')}}" alt="Image" class="img-fluid">
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="service-item">
+                  <div class="service-item-contents">
+                    <a href="#">
+                      <span class="service-item-category">We Offer</span>
+                      <h2 class="service-item-title">Pharmacy Contact</h2>
+                    </a>
+                  </div>
+                  <img src="{{url_for('static', filename='assets/img/img_sq_5.jpg')}}" alt="Image" class="img-fluid">
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Services 2 Section -->
+    
+      
+<!-- testimonials Section -->
+<section class="testimonials-12 testimonials section" id="testimonials">
+  <!-- Section Title -->
+
+
+</section><!-- /testimonials Section -->
+
+    
+    <!-- Recent Posts Section -->
+    <section id="recent-posts" class="recent-posts section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Latest Updates</h2>
+        <p>Top Trending Drugs on PULSE</p>
+      </div><!-- End Section Title -->
+    
+      <div class="container">
+    
+        <div class="row gy-5">
+    
+          <div class="col-xl-4 col-md-6">
+            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="100">
+    
+              <div class="post-img position-relative overflow-hidden">
+                <img src="{{ url_for('static', filename='assets/img/blog-1.jpg') }}" class="img-fluid" alt="Blog Image 1">
+                <span class="post-date">Paracetamol</span>
+              </div>
+    
+              <div class="post-content d-flex flex-column">
+    
+                <h3 class="post-title">Streamlining Medication Access with PULSE</h3>
+    
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">John Doe</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Health</span>
+                  </div>
+                </div>
+    
+                <hr>
+    
+                <a href="{{ url_for('blog') }}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+    
+              </div>
+    
+            </div>
+          </div><!-- End post item -->
+    
+          <div class="col-xl-4 col-md-6">
+            <div class="post-item position-relative h-100" data-aos="fade-up" data-aos-delay="200">
+    
+              <div class="post-img position-relative overflow-hidden">
+                <img src="{{ url_for('static', filename='assets/img/blog-2.jpg') }}" class="img-fluid" alt="Blog Image 2">
+                <span class="post-date">July 17</span>
+              </div>
+    
+              <div class="post-content d-flex flex-column">
+    
+                <h3 class="post-title">PULSE: Enhancing Pharmacy Access</h3>
+    
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">Jane Smith</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Pharmacy</span>
+                  </div>
+                </div>
+    
+                <hr>
+    
+                <a href="{{ url_for('blog') }}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+    
+              </div>
+    
+            </div>
+          </div><!-- End post item -->
+    
+          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="post-item position-relative h-100">
+    
+              <div class="post-img position-relative overflow-hidden">
+                <img src="{{ url_for('static', filename='assets/img/blog-7.jpg') }}" class="img-fluid" alt="Blog Image 3">
+                <span class="post-date">September 05</span>
+              </div>
+    
+              <div class="post-content d-flex flex-column">
+    
+                <h3 class="post-title">Impact of PULSE on Community Health</h3>
+    
+                <div class="meta d-flex align-items-center">
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-person"></i> <span class="ps-2">Michael Brown</span>
+                  </div>
+                  <span class="px-3 text-black-50">/</span>
+                  <div class="d-flex align-items-center">
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Community</span>
+                  </div>
+                </div>
+    
+                <hr>
+    
+                <a href="{{ url_for('home') }}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+    
+              </div>
+    
+            </div>
+          </div><!-- End post item -->
+    
+        </div>
+    
+      </div>
+    
+    </section><!-- /Recent Posts Section -->
+    
+
+    <!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section light-background">
+
+      <div class="content">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <h3>Join the PULSE Community</h3>
+              <p class="opacity-50">
+                Stay updated with our latest news, updates, and innovations in pharmacy access and healthcare.
+              </p>
+            </div>
+            <div class="col-lg-6">
+              <form action="{{ url_for('home') }}" class="form-subscribe">
+                <div class="form-group d-flex align-items-stretch">
+                  <input type="email" name="email" class="form-control h-100" placeholder="Enter your e-mail" required>
+                  <a  href="{{ url_for('home') }}" target="_blank" class="btn btn-secondary no-hover px-4 mt-1 mt-lg-0 ">Join</a>
+                </div>
+                <div class="loading">Loading...</div>
+                <div class="error-message"></div>
+                <div class="sent-message">
+                  Your subscription request has been sent. Thank you!
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </section><!-- /Call To Action Section -->
+    
+
+  </main>
+  <footer id="footer" class="footer dark-background">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6 footer-about">
+            <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
+              <span class="sitename">PULSE</span>
+            </a>
+            <div class="footer-contact pt-3">
+              <p>Rwanda Kigali</p>
+              <p>KN 67 St</p>
+              <p class="mt-3"><strong>Phone:</strong> <span>+250 788 123 456</span></p>
+              <p><strong>Email:</strong> <span>contact@pulse.rw</span></p>
+            </div>
+          </div>
+  
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Terms of service</a></li>
+              <li><a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+  
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><a href="#">Pharmacy Locator</a></li>
+              <li><a href="#">Real-Time Inventory</a></li>
+              <li><a href="#">Health Tips</a></li>
+              <li><a href="#">Consultation</a></li>
+              <li><a href="#">Pharmacy Management</a></li>
+            </ul>
+          </div>
+  
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Feedback</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+          </div>
+  
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Other Links</h4>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Partners</a></li>
+            </ul>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  
+    <div class="copyright text-center">
+      <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+  
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          <div>
+            © Copyright <strong><span>PULSE</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+
+            Designed by <a href="{{ url_for('home') }}">PULSE</a>
+          </div>
+        </div>
+  
+        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+          <a href=""><i class="bi bi-twitter"></i></a>
+          <a href=""><i class="bi bi-facebook"></i></a>
+          <a href=""><i class="bi bi-instagram"></i></a>
+          <a href=""><i class="bi bi-linkedin"></i></a>
+        </div>
+  
+      </div>
+    </div>
+  
+  </footer>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Vendor JS Files -->
+    <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/scripts.js') }}"></script>
+    
+
+    <!-- Main JS File -->
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+
+    <link rel="stylesheet" href="signup.css">
+
+</head>
+<body>
+    <div class="loader" id="loader"></div>
+    <div class="pulse-text" id="pulse-text">PULSE</div>
+    <div class="wrapper">
+        <div class="title">Signup Form</div>
+        <div class="form-container">
+            <div class="form-inner">
+                <form action="#" class="signup">
+                    <div class="field">
+                        <input type="text" placeholder="Email Address" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" placeholder="Confirm Password" required>
+                    </div>
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Signup">
+                    </div>
+                    <div class="signup-link">
+                        Already a member? <a href="login.html">Login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', function() {
+            // Show the loader and pulse text initially
+            document.getElementById('loader').style.display = 'block';
+            document.getElementById('pulse-text').style.display = 'block';
+            
+            // Set a timeout to hide the loader and pulse text after 4 seconds
+            setTimeout(function() {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('pulse-text').style.display = 'none';
+                document.querySelector('.wrapper').style.display = 'block';
+            }, 3000); // 4000 milliseconds = 4 seconds
+        });
+
+        document.querySelector('.signup').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+    
+            // Perform signup actions here, such as AJAX request
+    
+            // Redirect or take action after successful signup
+            window.location.href = 'index.html'; // Redirect to index.html upon successful signup
+        });
+    </script>
+</body>
+</html>
