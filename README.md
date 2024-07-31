@@ -20,7 +20,7 @@ To set up the project locally, follow these steps:
    ```sh
    git clone https://github.com/your-username/pulse.git
    cd pulse
-   cd Pulse_healthcare
+   cd pulse_healthcare
    ```
 
 2. **Create and activate a virtual environment**:
