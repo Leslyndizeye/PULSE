@@ -1,6 +1,6 @@
-## Python Flask Authentication
+## PULSE
 
-This repository contains the code used in the Python Flask Authentication [video](https://www.youtube.com/watch?v=71EU8gnZqZQ) uploaded on [my YouTube channel](https://www.youtube.com/watch?v=71EU8gnZqZQ).
+This repository contains the code used in the Python Flask Authentication [video](https://youtu.be/KO_auGq5e1k?si=UhYRfZxjPtMlzHp4) uploaded on [my YouTube channel](https://youtu.be/KO_auGq5e1k?si=UhYRfZxjPtMlzHp4).
 
 ## Installation
 
