@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Pharmacies - Pulse Bootstrap Template</title>
+    <title>Pulse </title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -32,7 +32,7 @@
 <body class="pharmacies-page">
     <header id="header" class="header d-flex align-items-center position-relative">
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
                 <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Pulse">
             </a>
             <nav id="navmenu" class="navmenu">
@@ -42,7 +42,7 @@
                   <li><a href="services.html">Our Services</a></li>
                   <li><a href="{{ url_for('pharmacies') }}" class="active">Pharmacies</a></li>
                   <li><a href="contact.html">Contact</a></li>
-                  <li><a href="{{ url_for('login') }}">Login</a></li>
+                  <li><a href="{{ url_for('register') }}">Logout</a></li>
               </ul>
               <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -89,98 +89,98 @@
          -->
     </main>
 
-      <footer id="footer" class="footer dark-background mg-auto">
-
-        <div class="footer-top">
-          <div class="container">
-            <div class="row gy-4">
-              <div class="col-lg-4 col-md-6 footer-about">
-                <a href="index.html" class="logo d-flex align-items-center">
-                  <span class="sitename">PULSE</span>
-                </a>
-                <div class="footer-contact pt-3">
-                  <p><a href="https://www.google.com/maps/place/African+Leadership+University/@-1.9306311,30.1503427,920m/data=!3m2!1e3!4b1!4m6!3m5!1s0x19dca77688d3131f:0x3a65f6d29a33c0d3!8m2!3d-1.9306311!4d30.1529176!16s%2Fg%2F11fptq4j9w?entry=ttu" target="_blank"><i class="bi bi-geo-alt"></i> KN 159 ST</p>
-                  <p>KIGALI RWANDA, NY 535022</p>
-                  <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-                  <p><strong>Email:</strong> <span>info@example.com</span></p>
-                </div>
+    <footer id="footer" class="footer dark-background">
+      
+      <div class="footer-top">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-4 col-md-6 footer-about">
+              <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
+                <span class="sitename">PULSE</span>
+              </a>
+              <div class="footer-contact pt-3">
+                <p>Nyamirambo Road</p>
+                <p>Kigali, Rwanda</p>
+                <p class="mt-3"><strong>Phone:</strong> <span>+250 785 123 456</span></p>
+                <p><strong>Email:</strong> <span>Alu@example.com</span></p>
               </div>
-    
-              <div class="col-lg-2 col-md-3 footer-links">
-                <h4>Useful Links</h4>
-                <ul>
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="about.html">About us</a></li>
-                  <li><a href="services.html">Services</a></li>
-                  <li><a href="contact.html">Contact</a></li>
-                  <li><a href="login.html">LOGIN / REGISTER</a></li>
-                </ul>
-              </div>
-    
-              <div class="col-lg-2 col-md-3 footer-links">
-                <h4>Our Services</h4>
-                <ul>
-                  <li><a href="#">Web Design</a></li>
-                  <li><a href="#">Web Development</a></li>
-                  <li><a href="#">Product Management</a></li>
-                  <li><a href="#">Marketing</a></li>
-                  <li><a href="#">Graphic Design</a></li>
-                </ul>
-              </div>
-    
-              <div class="col-lg-2 col-md-3 footer-links">
-                <h4>Hic solutasetp</h4>
-                <ul>
-                  <li><a href="#">Molestiae accusamus iure</a></li>
-                  <li><a href="#">Excepturi dignissimos</a></li>
-                  <li><a href="#">Suscipit distinctio</a></li>
-                  <li><a href="#">Dilecta</a></li>
-                  <li><a href="#">Sit quas consectetur</a></li>
-                </ul>
-              </div>
-    
-              <div class="col-lg-2 col-md-3 footer-links">
-                <h4>Nobis illum</h4>
-                <ul>
-                  <li><a href="#">Ipsam</a></li>
-                  <li><a href="#">Laudantium dolorum</a></li>
-                  <li><a href="#">Dinera</a></li>
-                  <li><a href="#">Trodelas</a></li>
-                  <li><a href="#">Flexo</a></li>
-                </ul>
-              </div>
-    
             </div>
+  
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Terms of service</a></li>
+                <li><a href="#">Privacy policy</a></li>
+              </ul>
+            </div>
+  
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li><a href="#">Web Design</a></li>
+                <li><a href="#">Web Development</a></li>
+                <li><a href="#">Product Management</a></li>
+                <li><a href="#">Marketing</a></li>
+                <li><a href="#">Graphic Design</a></li>
+              </ul>
+            </div>
+  
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Support</h4>
+              <ul>
+                <li><a href="#">Help Center</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Customer Service</a></li>
+                <li><a href="#">Report Issues</a></li>
+              </ul>
+            </div>
+            
+            <div class="col-lg-2 col-md-3 footer-links">
+              <h4>Our Partners</h4>
+              <ul>
+                <li><a href="#">Our Network</a></li>
+                <li><a href="#">Collaborations</a></li>
+                <li><a href="#">Community Support</a></li>
+                <li><a href="#">Investor Relations</a></li>
+                <li><a href="#">Feedback</a></li>
+              </ul>
+            </div>
+            
+  
           </div>
         </div>
-    
-        <div class="copyright text-center">
-          <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
-    
-            <div class="d-flex flex-column align-items-center align-items-lg-start">
-              <div>
-                © Copyright <strong><span>PULSE</span></strong>. All Rights Reserved
-              </div>
-              <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
-                <a href="index.html">PULSE</a>
-              </div>
+      </div>
+  
+      <div class="copyright text-center">
+        <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+  
+          <div class="d-flex flex-column align-items-center align-items-lg-start">
+            <div>
+              © Copyright <strong><span>Pulse</span></strong>. All Rights Reserved
             </div>
-    
-            <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
+            <div class="credits">
+              <!-- All the links in the footer should remain intact. -->
+              <!-- You can delete the links only if you purchased the pro version. -->
+              <!-- Licensing information: https://bootstrapmade.com/license/ -->
+              Designed by <a href="{{ url_for('home') }}">PULSE</a>
             </div>
-    
           </div>
+  
+          <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+  
         </div>
-    
-      </footer>
+      </div>
+  
+    </footer>
 
     <script src="{{ url_for('static', filename='assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ url_for('static', filename='assets/vendor/aos/aos.js') }}"></script>

@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 </head>
-
 <body>
-    <h1>Login Page</h1>
+    <div class="loader" id="loader"></div>
+    <div class="pulse-text" id="pulse-text">PULSE</div>
+    <div class="wrapper">
+        <div class="title">Login Form</div>
+        <div class="form-container">
+            <div class="form-inner">
+                <form id="login-form" method="POST" action="{{ url_for('login') }}">
+                    {{ form.hidden_tag() }}
+                    <div class="field">
+                        {{ form.username.label }}
+                        {{ form.username(class_="form-control") }}
+                    </div>
+                    <br>
+                    <div class="field">
+                        {{ form.password.label }}
+                        {{ form.password(class_="form-control") }}
+                    </div>
 
-    <form method="POST" action="">
-        {{ form.hidden_tag() }}
-        {{ form.username }}
-        {{ form.password }}
-        {{ form.submit }}
-    </form>
+                    <br>
+                    
+                    <div class="pass-link"><a href="#">Forgot password?</a></div>
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        {{ form.submit(class_="btn btn-primary") }}
+                    </div>
+                    <div class="signup-link">
+                        Not a member? <a href="{{ url_for('register') }}">Signup now</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-    <a href="{{ url_for('register') }}">Don't have an account? Sign Up</a>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
 </body>
-
 </html>

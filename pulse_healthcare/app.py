@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import InputRequired, Length, ValidationError
+from wtforms.validators import InputRequired, Length, ValidationError, EqualTo
 from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
@@ -34,7 +34,7 @@ class RegisterForm(FlaskForm):
         InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
 
     confirm_password = PasswordField(validators=[
-        InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Confirm Password"})
+        InputRequired(), EqualTo('password', message='Passwords must match')], render_kw={"placeholder": "Confirm Password"})
 
     submit = SubmitField('Register')
 
@@ -44,10 +44,6 @@ class RegisterForm(FlaskForm):
         if existing_user_username:
             raise ValidationError(
                 'That username already exists. Please choose a different one.')
-
-    def validate_passwords(self, field):
-        if self.password.data != self.confirm_password.data:
-            raise ValidationError('Passwords must match.')
 
 class LoginForm(FlaskForm):
     username = StringField(validators=[
@@ -72,8 +68,7 @@ def login():
             login_user(user)
             return redirect(url_for('pharmacies'))
         else:
-            message = "Username or password does not exist."
-            message = "Account does not exist. Please try again. "
+            message = "Account does not exist. Please try again."
     return render_template('login.html', form=form, message=message)
 
 @app.route('/pharmacies')
@@ -113,6 +108,5 @@ def blog():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
-
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=5000)

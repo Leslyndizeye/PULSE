@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Pharmacies - Pulse Bootstrap Template</title>
+    <title>PULSE</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -41,8 +41,7 @@
 
       <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Lesly's AgriHub">
-        <!-- <h1 class="sitename">AgriCulture</h1>  -->
+        <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Pulse">
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -50,9 +49,6 @@
           <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
           <li><a href="{{ url_for('about') }}">About Us</a></li>
           <li><a href="{{ url_for('services') }}">Our Services</a></li>
-          <li><a href="{{ url_for('pharmacies') }}">pharmacies</a></li>
-          <li><a href="{{ url_for('blog') }}">Blog</a></li>
-
           <li><a href="{{ url_for('contact') }}">Contact</a></li>
           <li><a href="{{ url_for('login') }}">Login</a></li>
           <li><a href="{{ url_for('register') }}">Signup</a></li>
@@ -119,7 +115,7 @@
           <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
         </a>
     
-        <a class="carousel-control-next" href="" role="button" data-bs-slide="next">
+        <a class="carousel-control-next" href="#hero-carousel" role="button" data-bs-slide="next">
           <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
         </a>
     
@@ -195,7 +191,7 @@
   <div class="container">
     <div class="row gy-4 justify-content-between align-items-center">
       <div class="col-lg-6 order-lg-2 position-relative" data-aos="zoom-out">
-        <img src="{{ url_for('static', filename='assets/img/about-3.jpg') }}" alt="Image" class="img-fluid">
+        <img src="{{ url_for('static', filename='assets/img/img_sq_10.jpg') }}" alt="Image" class="img-fluid">
         <a href="https://youtu.be/iA1mR4RcCCg?si=0kfUQPPJlG3x0cOx" class="glightbox pulsating-play-btn">
           <span class="play"><i class="bi bi-play-fill"></i></span>
         </a>
@@ -287,7 +283,7 @@
                       <h2 class="service-item-title">Pharmacy Locator</h2>
                     </a>
                   </div>
-                  <img src="{{url_for('static', filename='assets/img/img_sq_2.jpg')}}" alt="Image" class="img-fluid">
+                  <img src="{{url_for('static', filename='assets/img/hero_2.jpg')}}" alt="Image" class="img-fluid">
                 </div>
               </div>
               <div class="swiper-slide">
@@ -310,7 +306,7 @@
                       <h2 class="service-item-title">Medication Availability</h2>
                     </a>
                   </div>
-                  <img style="height:406px; width:406px; object-fit: cover;" src="{{url_for('static', filename='assets/img/img_sq_6.jpg')}}" alt="Image" class="img-fluid">
+                  <img src="{{url_for('static', filename='assets/img/hero_3.jpg')}}" alt="Image" class="img-fluid">
                 </div>
               </div>
               <div class="swiper-slide">
@@ -321,7 +317,7 @@
                       <h2 class="service-item-title">Pharmacy Reviews</h2>
                     </a>
                   </div>
-                  <img style="height:406px; width:406px; object-fit: cover;" src="{{url_for('static', filename='assets/img/img_sq_8.jpg')}}" alt="Image" class="img-fluid">
+                  <img src="{{url_for('static', filename='assets/img/img_sq_8.jpg')}}" alt="Image" class="img-fluid">
                 </div>
               </div>
               <div class="swiper-slide">
@@ -332,7 +328,7 @@
                       <h2 class="service-item-title">Medication Information</h2>
                     </a>
                   </div>
-                  <img style="width: 406px; height: 406px; object-fit: cover;" src="{{url_for('static', filename='assets/img/img_sq_10.jpg')}}" alt="Image" class="img-fluid">
+                  <img  src="{{url_for('static', filename='assets/img/img_long_1.jpg')}}" alt="Image" class="img-fluid">
                 </div>
               </div>
               <div class="swiper-slide">
@@ -343,7 +339,7 @@
                       <h2 class="service-item-title">Pharmacy Contact</h2>
                     </a>
                   </div>
-                  <img src="{{url_for('static', filename='assets/img/img_sq_5.jpg')}}" alt="Image" class="img-fluid">
+                  <img src="{{url_for('static', filename='assets/img/hero_4.jpg')}}" alt="Image" class="img-fluid">
                 </div>
               </div>
             </div>
@@ -385,21 +381,21 @@
     
               <div class="post-content d-flex flex-column">
     
-                <h3 class="post-title">Streamlining Medication Access with PULSE</h3>
+                <h3 class="post-title">Paracetamol</h3>
     
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">John Doe</span>
+                    <i class="bi bi-person"></i> <span class="ps-2">headache</span>
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Health</span>
+                    <i class="bi bi-folder2"></i> <span class="ps-2">KIPHARMA PHARMACY</span>
                   </div>
                 </div>
     
                 <hr>
     
-                <a href="{{ url_for('blog') }}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                <a href="{{ url_for('home') }}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
     
               </div>
     
@@ -411,26 +407,26 @@
     
               <div class="post-img position-relative overflow-hidden">
                 <img src="{{ url_for('static', filename='assets/img/blog-2.jpg') }}" class="img-fluid" alt="Blog Image 2">
-                <span class="post-date">July 17</span>
+                <span class="post-date">Tonoflex-p</span>
               </div>
     
               <div class="post-content d-flex flex-column">
     
-                <h3 class="post-title">PULSE: Enhancing Pharmacy Access</h3>
+                <h3 class="post-title">Tonoflex-p</h3>
     
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Jane Smith</span>
+                    <i class="bi bi-person"></i> <span class="ps-2">headache</span>
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Pharmacy</span>
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Morial Pharmacy</span>
                   </div>
                 </div>
     
                 <hr>
     
-                <a href="{{ url_for('blog') }}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                <a href="{{ url_for('home') }}" class="readmore stretched-link"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
     
               </div>
     
@@ -442,20 +438,20 @@
     
               <div class="post-img position-relative overflow-hidden">
                 <img src="{{ url_for('static', filename='assets/img/blog-7.jpg') }}" class="img-fluid" alt="Blog Image 3">
-                <span class="post-date">September 05</span>
+                <span class="post-date">CODRAL</span>
               </div>
     
               <div class="post-content d-flex flex-column">
     
-                <h3 class="post-title">Impact of PULSE on Community Health</h3>
+                <h3 class="post-title">CODRAL</h3>
     
                 <div class="meta d-flex align-items-center">
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-person"></i> <span class="ps-2">Michael Brown</span>
+                    <i class="bi bi-person"></i> <span class="ps-2">Cold & Flu</span>
                   </div>
                   <span class="px-3 text-black-50">/</span>
                   <div class="d-flex align-items-center">
-                    <i class="bi bi-folder2"></i> <span class="ps-2">Community</span>
+                    <i class="bi bi-folder2"></i> <span class="ps-2">Nova pharmacy</span>
                   </div>
                 </div>
     
