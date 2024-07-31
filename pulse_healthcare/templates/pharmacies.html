@@ -32,7 +32,7 @@
 <body class="pharmacies-page">
     <header id="header" class="header d-flex align-items-center position-relative">
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
                 <img src="{{ url_for('static', filename='assets/img/logo.png') }}" alt="Pulse">
             </a>
             <nav id="navmenu" class="navmenu">
