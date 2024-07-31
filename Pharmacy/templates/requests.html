@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Requests</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>User Requests</h1>
+    </header>
+    <aside class="sidebar">
+        <ul>
+            <li><a href="{{ url_for('home_page') }}">Home</a></li>
+            <li><a href="{{ url_for('inventory_management') }}">Inventory Management</a></li>
+            <li><a href="{{ url_for('requests_page') }}">User Requests</a></li>
+        </ul>
+    </aside>
+    <main>
+        <section id="view-requests">
+            <h2>View Requests</h2>
+            <div class="card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for req in requests %}
+                        <tr data-id="{{ req.id }}">
+                            <td>{{ req.user }}</td>
+                            <td>{{ req.product_name }}</td>
+                            <td>{{ req.quantity }}</td>
+                            <td class="status">{{ req.status }}</td>
+                            <td>
+                                <button class="accept-button" onclick="handleAction({{ req.id }}, 'accept')">Accept</button>
+                                <button class="deny-button" onclick="handleAction({{ req.id }}, 'deny')">Deny</button>
+                                <button class="message-button" onclick="handleAction({{ req.id }}, 'message')">Message</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

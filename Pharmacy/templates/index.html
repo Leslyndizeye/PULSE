@@ -4,54 +4,8 @@
     <meta charset="UTF-8">
     <title>Dashboard Home</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background-color:#142a8f;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        .sidebar {
-            width: 200px;
-            float: left;
-            height: 100vh; /* Full height */
-            overflow-y: auto; /* Add scroll if needed */
-            background-color: #b3d0fa;
-            padding: 20px;
-        }
-
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .sidebar li a {
-            display: block;
-            padding: 10px;
-            text-decoration: none;
-            color: black;
-        }
-
-        main {
-            margin-left: 220px; /* Adjust based on sidebar width */
-            padding: 20px;
-        }
-
-        .card {
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-bottom: 20px;
-        }
     </style>
 </head>
 <body>

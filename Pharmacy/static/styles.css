@@ -1,0 +1,86 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #142a8f;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.sidebar {
+    width: 200px;
+    float: left;
+    height: 100vh; /* Full height */
+    overflow-y: auto; /* Add scroll if needed */
+    background-color: #b3d0fa;
+    padding: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+main {
+    margin-left: 220px; /* Adjust based on sidebar width */
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.accept-button, .deny-button, .message-button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    color: white;
+}
+
+.accept-button {
+    background-color: #4CAF50;
+}
+
+.deny-button {
+    background-color: #f44336;
+}
+
+.message-button {
+    background-color: #2196F3;
+}
+#view-requests h2{
+    text-align: center;
+}
