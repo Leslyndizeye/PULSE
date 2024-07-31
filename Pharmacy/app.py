@@ -1,32 +1,38 @@
-from flask import Flask, redirect, render_template, request, url_for, jsonify
+from flask import Flask, render_template, redirect, url_for, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, NumberRange
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key_here'  # Replace with your actual secret key
+app.config['SECRET_KEY'] = 'your_secret_key'
 
-# Sample data
+# Example in-memory inventory and requests
 inventory = [
-    {'id': 1, 'name': 'Aspirin', 'quantity': 20},
-    {'id': 2, 'name': 'Ibuprofen', 'quantity': 15}
+    {'name': 'Product1', 'price': 10.00, 'quantity': 100},
+    {'name': 'Product2', 'price': 20.00, 'quantity': 50},
 ]
 
 requests = [
-    {'id': 1, 'user': 'John Doe', 'product_name': 'Aspirin', 'quantity': 2,'status': 'Pending'},
-    {'id': 2, 'user': 'Jane Smith', 'product_name': 'Ibuprofen', 'quantity': 1,'status': 'Pending'}
+    {'id': 1, 'user': 'John Doe', 'product_name': 'Aspirin', 'quantity': 2, 'status': 'Pending'},
+    {'id': 2, 'user': 'Jane Smith', 'product_name': 'Ibuprofen', 'quantity': 1, 'status': 'Pending'}
 ]
 
 # Flask-WTF Form for Inventory Management
 class InventoryForm(FlaskForm):
     name = StringField('Medicine Name', validators=[DataRequired()])
-    quantity = IntegerField('Quantity', validators=[DataRequired()])
+    quantity = IntegerField('Quantity', validators=[DataRequired(), NumberRange(min=1)])
     submit = SubmitField('Add Medicine')
+
+# Flask-WTF Form for Requests
+class RequestForm(FlaskForm):
+    user = StringField('User', validators=[DataRequired()])
+    product_name = StringField('Product Name', validators=[DataRequired()])
+    quantity = IntegerField('Quantity', validators=[DataRequired(), NumberRange(min=1)])
+    submit = SubmitField('Submit Request')
 
 @app.route('/')
 def home_page():
-    return render_template('index.html')  
-
+    return render_template('index.html')
 
 @app.route('/inventory', methods=['GET', 'POST'])
 def inventory_management():
@@ -34,40 +40,22 @@ def inventory_management():
     if form.validate_on_submit():
         name = form.name.data
         quantity = form.quantity.data
-        new_id = len(inventory) + 1
-        inventory.append({'id': new_id, 'name': name, 'quantity': quantity})
+        # Add the product to the inventory
+        inventory.append({'name': name, 'price': 0.0, 'quantity': quantity})  # Default price set to 0.0
         return redirect(url_for('inventory_management'))
-    return render_template('inventory-management.html', form=form, inventory=inventory)
+    return render_template('inventory.html', form=form, inventory=inventory)
 
-@app.route('/requests', methods=['GET'])
+@app.route('/requests', methods=['GET', 'POST'])
 def requests_page():
-    return render_template('requests.html', requests=requests)
-
-@app.route('/update_request/<int:request_id>', methods=['POST'])
-def update_request(request_id):
-    data = request.get_json()
-    new_status = data.get('status')
-    for req in requests:
-        if req['id'] == request_id:
-            req['status'] = new_status
-            return jsonify(success=True)
-    return jsonify(success=False, error='Request not found')
-
-@app.route('/update_product/<int:product_id>', methods=['POST'])
-def update_product(product_id):
-    data = request.get_json()
-    new_quantity = data.get('quantity')
-    for product in inventory:
-        if product['id'] == product_id:
-            product['quantity'] = new_quantity
-            return jsonify(success=True)
-    return jsonify(success=False, error='Product not found')
-
-@app.route('/delete_product/<int:product_id>', methods=['DELETE'])
-def delete_product(product_id):
-    global inventory
-    inventory = [product for product in inventory if product['id']!= product_id]
-    return jsonify(success=True)
+    form = RequestForm()
+    if form.validate_on_submit():
+        user = form.user.data
+        product_name = form.product_name.data
+        quantity = form.quantity.data
+        # Add the request to the requests list
+        requests.append({'id': len(requests) + 1, 'user': user, 'product_name': product_name, 'quantity': quantity, 'status': 'Pending'})
+        return redirect(url_for('requests_page'))
+    return render_template('requests.html', form=form, requests=requests)
 
 if __name__ == '__main__':
     app.run(debug=True)
