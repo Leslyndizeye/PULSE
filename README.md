@@ -45,11 +45,43 @@ To set up the project locally, follow these steps:
    Here is an example of what the `requirements.txt` might look like:
 
    ```
-   Flask==2.3.2
-   Flask-Bcrypt==1.0.0
-   Flask-Migrate==3.0.0
-   Flask-SQLAlchemy==3.0.3
-   gunicorn==20.1.0
+   aniso8601==9.0.1
+asarPy==1.0.1
+asgiref==3.5.0
+bcrypt==3.2.0
+blinker==1.8.2
+cffi==1.15.0
+click==8.1.2
+Cython==0.29.37
+dnspython==2.2.1
+email-validator==1.1.3
+Flask==2.1.1
+Flask-Bcrypt==1.0.1
+Flask-Login==0.6.0
+Flask-RESTful==0.3.10
+Flask-SQLAlchemy==2.5.1
+Flask-WTF==1.0.1
+greenlet==3.0.3
+idna==3.3
+importlib-metadata==4.11.3
+itsdangerous==2.1.2
+Jinja2==3.1.1
+Mako==1.3.5
+Markdown==3.6
+MarkupSafe==2.1.1
+meson==1.3.2
+pycparser==2.21
+Pygments==2.18.0
+PyMySQL==1.1.1
+pytz==2024.1
+six==1.16.0
+SQLAlchemy==1.4.35
+sqlparse==0.4.2
+typing_extensions==4.12.2
+Werkzeug==2.1.1
+WTForms==3.0.1
+zipp==3.8.0
+gunicorn
    ```
 
 4. **Set up the database**:
