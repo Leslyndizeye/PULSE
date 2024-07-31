@@ -3,40 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Signup</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
 </head>
 <body>
     <div class="loader" id="loader"></div>
     <div class="pulse-text" id="pulse-text">PULSE</div>
     <div class="wrapper">
-        <div class="title">Register</div>
+        <div class="title">Signup Form</div>
         <div class="form-container">
             <div class="form-inner">
-                <form method="POST" action="{{ url_for('register') }}" class="register">
+                <form method="POST" action="{{ url_for('register') }}">
                     {{ form.hidden_tag() }}
                     <div class="field">
                         {{ form.username.label(class="form-label") }}
-                        {{ form.username(class="form-input", placeholder="Username") }}
+                        {{ form.username(class_="form-control") }}
                     </div>
+                    <br>
                     <div class="field">
                         {{ form.password.label(class="form-label") }}
-                        {{ form.password(class="form-input", placeholder="Password") }}
+                        {{ form.password(class_="form-control") }}
                     </div>
-                    <!-- Remove this block if you do not have confirm_password -->
-                    <!--
+                    <br>
                     <div class="field">
                         {{ form.confirm_password.label(class="form-label") }}
-                        {{ form.confirm_password(class="form-input", placeholder="Confirm Password") }}
+                        {{ form.confirm_password(class_="form-control") }}
                     </div>
-                    -->
+                    <br>
                     <div class="field btn">
                         <div class="btn-layer"></div>
-                        {{ form.submit(class="btn-submit") }}
+                        {{ form.submit(class_="btn btn-primary") }}
                     </div>
                     <div class="signup-link">
-                        Already have an account? <a href="{{ url_for('login') }}">Log In</a>
+                        Already a member? <a href="{{ url_for('login') }}">Login</a>
                     </div>
                 </form>
             </div>

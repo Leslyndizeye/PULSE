@@ -10,12 +10,3 @@ window.addEventListener('load', function() {
         document.querySelector('.wrapper').style.display = 'block';
     }, 3000); // 3000 milliseconds = 3 seconds
 });
-
-document.querySelector('.register').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    // Perform registration actions here, such as AJAX request
-
-    // Redirect or take action after successful registration
-    window.location.href = ""// Redirect to index.html upon successful registration; 
-});
