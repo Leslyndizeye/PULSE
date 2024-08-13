@@ -1,10 +1,11 @@
-from flask import Flask, render_template, url_for, redirect, flash
+from flask import Flask, render_template, url_for, redirect, flash, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError, EqualTo
 from flask_bcrypt import Bcrypt
+import requests
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -25,6 +26,8 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20), nullable=False, unique=True)
     password = db.Column(db.String(80), nullable=False)
+    ip_address = db.Column(db.String(45))  # Supports both IPv4 and IPv6
+    location = db.Column(db.String(100))  # Store location information
 
 class RegisterForm(FlaskForm):
     username = StringField(validators=[
@@ -65,6 +68,10 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
+            # Update the user's IP address and fetch location
+            user.ip_address = request.remote_addr
+            user.location = get_location_from_ip(user.ip_address)
+            db.session.commit()
             login_user(user)
             return redirect(url_for('pharmacies'))
         else:
@@ -108,5 +115,20 @@ def blog():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+
+def get_location_from_ip(ip_address):
+    try:
+        response = requests.get(f"https://ipinfo.io/{ip_address}/json?token=5dd627a36e5968")
+        response.raise_for_status()  # Check for HTTP request errors
+        data = response.json()
+        city = data.get('city', 'Unknown')
+        region = data.get('region', 'Unknown')
+        country = data.get('country', 'Unknown')
+        return f"{city}, {region}, {country}"
+    except requests.RequestException as e:
+        print(f"Error fetching location: {e}")
+        return "Location not available"
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
