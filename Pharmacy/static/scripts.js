@@ -1,4 +1,3 @@
-
 function handleAction(requestId, action) {
     fetch(`/handle_request/${requestId}/${action}`, {
         method: 'POST',

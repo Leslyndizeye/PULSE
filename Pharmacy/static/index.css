@@ -6,32 +6,32 @@ body {
 }
 
 header {
-    background-color:#142a8f;
-    color: white;
-    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
     text-align: center;
 }
 
 .sidebar {
     width: 200px;
     float: left;
-    height: 100vh; /* Full height */
-    overflow-y: auto; /* Add scroll if needed */
-    background-color: #b3d0fa;
-    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    height: 100vh;
 }
 
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
 
 .sidebar li a {
-    display: block;
-    padding: 10px;
+    color: #fff;
     text-decoration: none;
-    color: black;
+    display: block;
+    padding: 0.5em;
 }
+.sidebar li a:hover {
+    background-color: #575757;
+}
+
 
 main {
     margin-left: 220px; /* Adjust based on sidebar width */

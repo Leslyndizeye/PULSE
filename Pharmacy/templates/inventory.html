@@ -3,57 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <title>Inventory Management</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='inventory.js') }}" defer></script>
 </head>
 <body>
-    <header id="header">
+    <header>
         <h1>Inventory Management</h1>
     </header>
     <aside class="sidebar">
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/inventory">Inventory Management</a></li>
-            <li><a href="/requests">User Requests</a></li>
+            <li><a href="{{ url_for('home_page') }}">Home</a></li>
+            <li><a href="{{ url_for('inventory_management') }}">Inventory Management</a></li>
+            <li><a href="{{ url_for('requests_page') }}">User Requests</a></li>
         </ul>
     </aside>
     <main>
         <section id="add-product">
             <h2>Add New Product</h2>
             <div class="card">
-                <form id="add-product-form">
+                <form method="POST" action="{{ url_for('inventory_management') }}">
+                    {{ form.hidden_tag() }}
                     <div class="form-group">
-                        <label for="name">Medicine Name</label>
-                        <input type="text" id="name" name="name" required>
+                        {{ form.name.label }} 
+                        {{ form.name(size=20, class_="form-control") }}
                     </div>
                     <div class="form-group">
-                        <label for="quantity">Quantity</label>
-                        <input type="number" id="quantity" name="quantity" min="1" required>
+                        {{ form.price.label }} 
+                        {{ form.price(size=20, class_="form-control") }}
                     </div>
-                    <button type="submit" class="btn">Add Medicine</button>
+                    <div class="form-group">
+                        {{ form.quantity.label }} 
+                        {{ form.quantity(size=20, class_="form-control") }}
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" class="form-control" rows="4"></textarea>
+                    </div>
+                    <button class="btn" type="submit">Add Product</button>
                 </form>
             </div>
         </section>
-        
+
         <section id="update-inventory">
             <h2>Update Inventory</h2>
             <div class="card">
+                <input type="text" id="search-bar" onkeyup="searchProducts()" placeholder="Search for products..." class="form-control">
                 <table>
                     <thead>
                         <tr>
                             <th>Product Name</th>
                             <th>Current Quantity</th>
+                            <th>Daily Update</th>
                             <th>New Quantity</th>
+                            <th>Description</th>
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody id="inventory-table">
+                    <tbody id="inventoryTable">
                         {% for product in inventory %}
-                        <tr data-id="{{ loop.index0 }}">
+                        <tr>
                             <td>{{ product.name }}</td>
                             <td>{{ product.quantity }}</td>
-                            <td><input type="number" min="0" value="{{ product.quantity }}" class="new-quantity"></td>
                             <td>
-                                <button class="edit-button">Update</button>
+                                <input type="number" min="0" value="0" id="dailyUpdate-{{ loop.index0 }}" onchange="calculateNewQuantity({{ loop.index0 }})">
+                            </td>
+                            <td id="newQuantity-{{ loop.index0 }}">{{ product.quantity }}</td>
+                            <td>{{ product.description }}</td>
+                            <td>
+                                <button class="edit-button" onclick="updateProduct({{ loop.index0 }})">Update</button>
                                 <button class="delete-button" onclick="deleteProduct({{ loop.index0 }})">Delete</button>
                             </td>
                         </tr>
@@ -63,6 +80,5 @@
             </div>
         </section>
     </main>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
