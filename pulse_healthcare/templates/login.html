@@ -26,7 +26,13 @@
                     </div>
 
                     <br>
-                    
+
+                    {% if message %}
+                        <div class="alert" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endif %}
+
                     <div class="pass-link"><a href="#">Forgot password?</a></div>
                     <div class="field btn">
                         <div class="btn-layer"></div>

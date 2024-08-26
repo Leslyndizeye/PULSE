@@ -67,15 +67,18 @@ def login():
     message = None
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
-        if user and bcrypt.check_password_hash(user.password, form.password.data):
-            # Update the user's IP address and fetch location
-            user.ip_address = request.remote_addr
-            user.location = get_location_from_ip(user.ip_address)
-            db.session.commit()
-            login_user(user)
-            return redirect(url_for('pharmacies'))
+        if user:
+            if bcrypt.check_password_hash(user.password, form.password.data):
+                # Update the user's IP address and fetch location
+                user.ip_address = request.remote_addr
+                user.location = get_location_from_ip(user.ip_address)
+                db.session.commit()
+                login_user(user)
+                return redirect(url_for('pharmacies'))
+            else:
+                message = "Incorrect password. Please try again."
         else:
-            message = "Account does not exist. Please try again."
+            message = "Username does not exist. Please try again."
     return render_template('login.html', form=form, message=message)
 
 @app.route('/pharmacies')
@@ -129,6 +132,5 @@ def get_location_from_ip(ip_address):
         print(f"Error fetching location: {e}")
         return "Location not available"
 
-
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=3000)
